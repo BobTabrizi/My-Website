@@ -29,12 +29,7 @@ export const headerData = {
     },
     {
       text: 'Projects',
-      links: [
-        {
-          text: 'SaaS',
-          href: getPermalink('/homes/saas'),
-        },
-      ],
+      href: getPermalink('/projects'),
     },
     {
       text: 'About',
