@@ -2,9 +2,9 @@
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import Layout from '~/layouts/PageLayout.astro';
-import heroImage from '../assets/images/MainPage.png';
 import helloWorldImage from '../assets/images/hello-world.png';
-
+import genSimImage from '../assets/images/gen-sim.png';
+import autoJavaImage from '../assets/images/auto-java.jpg';
 
 const metadata = {
   title: 'Bob Tabrizi\'s Projects',
@@ -96,7 +96,7 @@ const metadata = {
             src={helloWorldImage}
             class="opacity-90 rounded-lg shadow-lg"
             sizes="(max-width: 767px) 400px, 768px"
-            alt="Project 1"
+            alt="Hello World"
           />
         </div>
       </div>
@@ -109,7 +109,7 @@ const metadata = {
             <h3
               class="font-bold dark:text-white text-2xl mb-2 sm:text-3xl tracking-tight capitalize"
             >
-           Example Project 2
+           GenSim
             </h3>
           </div>
 
@@ -122,7 +122,8 @@ const metadata = {
             <div class="ml-4">
               <h3 class="font-medium dark:text-white leading-6 text-lg">Description</h3>
               <p class="text-muted mt-2">
-             Sample Text
+                Mobile simulator based off of the game Genshin Impact with over 10,000 installs on Google Play.
+                Stores and modifies user data in real time as simulations are run.
               </p>
             </div>
           </div>
@@ -134,8 +135,10 @@ const metadata = {
               </div>
             </div>
             <div class="ml-4">
-              <h3 class="font-medium dark:text-white leading-6 text-lg">Highlights</h3>
-              <p class="text-muted mt-2">Sample Text</p>
+              <h3 class="font-medium dark:text-white leading-6 text-lg">Tech Stack</h3>
+              <p class="text-muted mt-2">JavaScript</p>
+              <p class="text-muted mt-2">React Native</p>
+              <p class="text-muted mt-2">Google Firebase</p>
             </div>
           </div>
 
@@ -148,22 +151,8 @@ const metadata = {
             <div class="ml-4">
               <h3 class="font-medium dark:text-white leading-6 text-lg">Links</h3>
               <div class="flex items-center mt-2">
-                <a class="text-muted block cursor-pointer" href="https://www.example.com">
-                  Website
-                </a>
-                <span class="mx-2">·</span>
-                <a
-                  class="text-muted block cursor-pointer"
-                  href="https://www.example.com"
-                >
-                  Github
-                </a>
-                <span class="mx-2">·</span>
-                <a
-                  class="text-muted block cursor-pointer"
-                  href="https://www.example.com"
-                >
-                  Download
+                <a class="text-muted block cursor-pointer" href="https://play.google.com/store/apps/details?id=com.gensim">
+                  Google Play
                 </a>
               </div>
             </div>
@@ -172,20 +161,85 @@ const metadata = {
 
         <div>
           <Image
-            src={heroImage}
-            class="opacity-90 rounded-lg shadow-lg hidden dark:block"
+            src={genSimImage}
+            class="opacity-90 rounded-lg shadow-lg"
             sizes="(max-width: 767px) 400px, 768px"
-            alt="Project 2"
-          />
-          <Image
-            src={heroImage}
-            class="opacity-90 rounded-lg shadow-lg dark:hidden"
-            sizes="(max-width: 767px) 400px, 768px"
-            alt="Project 2"
+            alt="Gensim"
           />
         </div>
       </div>
     </section>
+
+    <section class="p-4">
+      <div class="mx-auto max-w-6xl grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div>
+          <div class="text-lg">
+            <h3
+              class="font-bold dark:text-white text-2xl mb-2 sm:text-3xl tracking-tight capitalize"
+            >
+           AutoJava
+            </h3>
+          </div>
+
+          <div class="flex mt-8">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-6">
+                <Icon name="open" class="w-5 h-5" />
+              </div>
+            </div>
+            <div class="ml-4">
+              <h3 class="font-medium dark:text-white leading-6 text-lg">Description</h3>
+              <p class="text-muted mt-2">
+                Desktop program that records inputs from mouse/keyboard and stores them in text files for real time playback.
+                Supports file saving and file search functionality for scripts made using the program or saved in system files. 
+              </p>
+            </div>
+          </div>
+
+          <div class="flex mt-4">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-6">
+                <Icon name="open" class="w-5 h-5" />
+              </div>
+            </div>
+            <div class="ml-4">
+              <h3 class="font-medium dark:text-white leading-6 text-lg">Tech Stack</h3>
+              <p class="text-muted mt-2">Java</p>
+            </div>
+          </div>
+
+          <div class="flex mt-4">
+            <div class="flex-shrink-0">
+              <div class="flex items-center justify-center h-6">
+                <Icon name="open" class="w-5 h-5" />
+              </div>
+            </div>
+            <div class="ml-4">
+              <h3 class="font-medium dark:text-white leading-6 text-lg">Links</h3>
+              <div class="flex items-center mt-2">
+                <span class="mx-2">·</span>
+                <a
+                  class="text-muted block cursor-pointer"
+                  href="https://github.com/BobTabrizi/AutoJava"
+                >
+                  Github
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <Image
+            src={autoJavaImage}
+            class="opacity-90 rounded-lg shadow-lg"
+            sizes="(max-width: 767px) 400px, 768px"
+            alt="Auto Java"
+          />
+        </div>
+      </div>
+    </section>
+
   </main>
 
 </Layout>
