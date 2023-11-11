@@ -10,6 +10,7 @@ import BlogLatestPosts from '~/components/widgets/BlogLatestPosts.astro';
 import FAQs from '~/components/widgets/FAQs.astro';
 import Stats from '~/components/widgets/Stats.astro';
 import CallToAction from '~/components/widgets/CallToAction.astro';
+import MainPageIcon from '~/components/ui/MainPageIcon.astro';
 
 const metadata = {
   title: 'Bob Tabrizi',
@@ -19,17 +20,19 @@ const metadata = {
 
 <Layout metadata={metadata}>
   <!-- Hero Widget ******************* -->
+  <main>
+    <section class="scroll-mt-16">
+      <div class="px-4 py-16 mx-auto max-w-6xl lg:px-8 lg:py-20">
+        <MainPageIcon/>
+        <h1 class="text-5xl font-bold leading-tighter tracking-tighter my-4 text-center">
+          Welcome to Bob Tabrizi's personal site.
+        </h1>
 
-  <Hero image={{ src: '~/assets/images/hero.png', alt: 'Main Page Image' }}>
-    <Fragment slot="title">
-      Welcome to Bob Tabrizi's personal site.
-    </Fragment>
-
-    <Fragment slot="subtitle">
-      <span class="hidden sm:inline">
-     I work as a Full Stack Software Engineer.</span>
-    </Fragment>
-  </Hero>
+        <p class="text-xl text-gray-600 mb-8 dark:text-slate-400 text-center">
+          I work as a Full Stack Software Engineer.
+        </p>
+      </div>
+    </section>
 
   <!-- Features Widget *************** -->
 
@@ -185,4 +188,6 @@ const metadata = {
                         Astro is a very interesting technology. Thanks.
                 `}
   />
+
+</main>
 </Layout>

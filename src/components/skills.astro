@@ -1,0 +1,80 @@
+---
+import { Icon } from "astro-icon/components";
+
+const items = [
+  {
+    title: "Amazon Web Services",
+    icon: "aws",
+  },
+  {
+    title: "JavaScript",
+    icon: "javascript",
+  },
+  {
+    title: "TypeScript",
+    icon: "typescript",
+  },
+  {
+    title: "ReactJS",
+    icon: "reactJS",
+  },
+  {
+    title: "Redux",
+    icon: "redux",
+  },
+  {
+    title: "Electron",
+    icon: "electron",
+  },
+  {
+    title: "NodeJS",
+    icon: "nodeJS",
+  },
+  {
+    title: "Java",
+    icon: "java",
+  },
+  {
+    title: "C++",
+    icon: "cPlusPlus",
+  },
+  {
+    title: "Jenkins",
+    icon: "Jenkins",
+  },
+  {
+    title: "mySQL",
+    icon: "mySQL",
+  },
+  {
+    title: "MongoDB",
+    icon: "mongoDB",
+  }
+];
+---
+
+<section class="relative">
+  <div class="absolute inset-0 bg-blue-50 dark:bg-slate-800 pointer-events-none" aria-hidden="true">
+  </div>
+  <div class="relative max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="py-4 pt-8 sm:py-6 lg:py-8 lg:pt-12">
+      <div class="mb-8 text-center">
+        <p class="text-base text-blue-600 dark:text-blue-200 font-semibold tracking-wide uppercase">
+          Skills
+        </p>
+      </div>
+      <div class="grid gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-start dark:text-white">
+        {
+          items.map(({ title, icon }) => (
+            <div class="relative flex flex-col p-3 bg-white dark:bg-slate-900 rounded shadow-xl hover:shadow-lg transition">
+              <div class="flex items-center">
+                <Icon name={icon} class="w-12 h-12" />
+                <div class="ml-4 text-lg leading-5 font-bold">{title}</div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>
