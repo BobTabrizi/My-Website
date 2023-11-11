@@ -2,7 +2,7 @@
 import Layout from '~/layouts/PageLayout.astro';
 import { Icon } from 'astro-icon/components';
 import { Image } from 'astro:assets';
-import MainPage from '../assets/images/hero.png';
+import PortraitImage from '../assets/images/portrait.png';
 import Skills from '../components/skills.astro';
 
 const metadata = {
@@ -21,7 +21,7 @@ const steps = [
     icon: "education",
     name: "UCSD Class of 2021",
     content:
-      "B.S in Computer Science & Mathematics",
+      "B.S. Computer Science & Mathematics",
   },
   {
     icon: "opensource",
@@ -66,7 +66,7 @@ const steps = [
       <div class="relative hidden md:block">
         <Image
           alt="My Photo"
-          src={MainPage}
+          src={PortraitImage}
           class="inset-0 object-cover object-top w-full rounded-md shadow-lg md:absolute md:h-full dark:brightness-75"
           sizes="(max-width: 768px) 100vw, 432px"
         />
