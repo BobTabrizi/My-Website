@@ -3,6 +3,7 @@ import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import Layout from '~/layouts/PageLayout.astro';
 import heroImage from '../assets/images/MainPage.png';
+import helloWorldImage from '../assets/images/hello-world.png';
 
 
 const metadata = {
@@ -27,20 +28,22 @@ const metadata = {
             <h3
               class="font-bold dark:text-white text-2xl mb-2 sm:text-3xl tracking-tight capitalize"
             >
-              Example Project 1
+              Hello World
             </h3>
           </div>
 
           <div class="flex mt-8">
             <div class="flex-shrink-0">
               <div class="flex items-center justify-center h-6">
-                <Icon name="open" class="w-5 h-5" />
+                <Icon name="package" class="w-5 h-5" />
               </div>
             </div>
             <div class="ml-4">
               <h3 class="font-medium dark:text-white leading-6 text-lg">Description</h3>
               <p class="text-muted mt-2">
-             Sample Text
+                Web application that allows users to explore and discover sounds from nations around the world.
+                Utilizes a custom REST API that gathers and stores data from Spotify API endpoints for playlist querying.
+                Through usage of the Youtube Data API, all songs can be viewed and listened to without logging into Spotify.
               </p>
             </div>
           </div>
@@ -48,12 +51,16 @@ const metadata = {
           <div class="flex mt-4">
             <div class="flex-shrink-0">
               <div class="flex items-center justify-center h-6">
-                <Icon name="open" class="w-5 h-5" />
+                <Icon name="tech" class="w-5 h-5" />
               </div>
             </div>
             <div class="ml-4">
-              <h3 class="font-medium dark:text-white leading-6 text-lg">Highlights</h3>
-              <p class="text-muted mt-2">Sample Text</p>
+              <h3 class="font-medium dark:text-white leading-6 text-lg">Tech Stack</h3>
+              <p class="text-muted mt-2">NextJS</p>
+              <p class="text-muted mt-2">NodeJS</p>
+              <p class="text-muted mt-2">Express</p>
+              <p class="text-muted mt-2">MongoDB</p>
+              <p class="text-muted mt-2">AWS Lambda & S3</p>
             </div>
           </div>
 
@@ -66,7 +73,19 @@ const metadata = {
             <div class="ml-4">
               <h3 class="font-medium dark:text-white leading-6 text-lg">Links</h3>
               <div class="flex items-center mt-2">
-                Sample Text
+                <a
+                class="text-muted block cursor-pointer"
+                href="https://hello-world-bobtabrizi.vercel.app"
+              >
+                Website
+              </a>
+                <span class="mx-2">·</span>
+                <a
+                class="text-muted block cursor-pointer"
+                href="https://github.com/BobTabrizi/Hello-World"
+              >
+                Github
+              </a>
               </div>
             </div>
           </div>
@@ -74,7 +93,7 @@ const metadata = {
 
         <div>
           <Image
-            src={heroImage}
+            src={helloWorldImage}
             class="opacity-90 rounded-lg shadow-lg"
             sizes="(max-width: 767px) 400px, 768px"
             alt="Project 1"
