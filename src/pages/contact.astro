@@ -1,8 +1,8 @@
 ---
 import Layout from '~/layouts/PageLayout.astro';
-import HeroText from '~/components/widgets/HeroText.astro';
-import ContactUs from '~/components/widgets/Contact.astro';
-import Features2 from '~/components/widgets/Features2.astro';
+import { Icon } from 'astro-icon/components';
+import { headerData } from '~/navigation';
+
 
 const metadata = {
   title: 'Contact',
@@ -10,69 +10,55 @@ const metadata = {
 ---
 
 <Layout metadata={metadata}>
-  <!-- HeroText Widget ******************* -->
+  <main>
+    <section>
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 overflow-hidden">
+        <div class="py-12 md:py-20">
+          <div class="py-4 sm:py-6 lg:py-8">
+            <div class="flex flex-wrap md:-mx-8">
+              <div class="w-full lg:w-1/2 px-0 sm:px-8">
+                <div class="mb-12 lg:mb-0 pb-12 lg:pb-0 border-b lg:border-b-0">
+                  <h2 class="mb-4 text-3xl lg:text-4xl font-bold font-heading">Contact Me</h2>
+                  <p class="mb-8 text-xl text-gray-600 dark:text-slate-400">
+                    Thank you for checking out my website.
+                  </p>
 
-  <HeroText tagline="Contact" title="Let's Connect!" />
-
-  <ContactUs
-    title="Drop us a message today!"
-    subtitle="For quicker answers, explore our FAQs section. You may find the solution you're looking  for right there! If not, our support team is delighted to help you."
-    inputs={[
-      {
-        type: 'text',
-        name: 'name',
-        label: 'Name',
-      },
-      {
-        type: 'email',
-        name: 'email',
-        label: 'Email',
-      },
-    ]}
-    textarea={{
-      label: 'Message',
-    }}
-    disclaimer={{
-      label:
-        'By submitting this contact form, you acknowledge and agree to the collection of your personal information.',
-    }}
-    description="Our support team typically responds within 24 business hours."
-  />
-
-  <!-- Features2 Widget ************** -->
-
-  <Features2
-    title="We are here to help!"
-    items={[
-      {
-        title: 'General support',
-        description: `Chat with us for inquiries related to account management, website navigation, payment issues, accessing purchased templates or general questions about the website's functionality.`,
-      },
-      {
-        title: 'Contact sales',
-        description:
-          'Chat with us for questions about purchases, customization options, licensing for commercial use, inquiries about specific template, etc.',
-      },
-      {
-        title: 'Technical support',
-        description:
-          'Chat with us when facing issues like template installation, problems editing difficulties, compatibility issues with software or download errors, or other technical challenges related to using the templates.',
-      },
-      {
-        title: 'Phone',
-        description: '+1 (234) 567-890',
-        icon: 'tabler:headset',
-      },
-      {
-        title: 'Email',
-        description: 'contact@support.com',
-        icon: 'tabler:mail',
-      },
-      {
-        title: 'Location',
-        description: '1234 Lorem Ipsum St, 12345, Miami, EEUU',
-        icon: 'tabler:map-pin',
-      },
-    ]}
-  />
+                  <div class="w-full">
+                    <a
+                      class="btn bg-blue-600 hover:bg-blue-700 text-white font-bold"
+                      href="mailto:bobak.tabrizi@gmail.com"
+                      rel="noopener"
+                    >
+                      Email me
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="w-full lg:w-1/2 px-0 sm:px-8">
+                <ul class="space-y-6">
+                  {
+                    headerData.links.map((link) => (
+                      <li class="flex md:-mx-4">
+                        <a
+                          class="rounded-full shadow p-1.5 link"
+                          aria-label={link.label}
+                          href={link.url}
+                          target="_blank"
+                        >
+                          <Icon name={link.icon} class="w-16 h-16" />
+                          <div class="px-4 flex items-center">
+                            <h3 class="text-xl font-semibold">{link.label}</h3>
+                          </div>
+                        </a>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
 </Layout>
