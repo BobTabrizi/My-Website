@@ -46,6 +46,7 @@ export interface Post {
 
 export interface MetaData {
   title?: string;
+  image?: Image;
   ignoreTitleTemplate?: boolean;
 
   canonical?: string;

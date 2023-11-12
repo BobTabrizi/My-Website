@@ -22,9 +22,8 @@ const { Content } = post;
 <section class="py-8 sm:py-16 lg:py-20 mx-auto">
   <article>
     <header class={post.image ? '' : ''}>
-      <div class="flex justify-between flex-col sm:flex-row max-w-3xl mx-auto mt-0 mb-2 px-4 sm:px-6 sm:items-center">
+      <div class="flex justify-center flex-col sm:flex-row max-w-3xl mx-auto mt-0 mb-2 px-4 sm:px-6 sm:items-center">
         <p>
-          <Icon name="tabler:clock" class="w-4 h-4 inline-block -mt-0.5 dark:text-gray-400" />
           <time datetime={String(post.publishDate)} class="inline-block">{getFormattedDate(post.publishDate)}</time>
           {
             post.category && (
@@ -40,17 +39,13 @@ const { Content } = post;
           {post.readingTime && <> · {post.readingTime} min read</>}
         </p>
       </div>
-      <h1
-        class="px-4 sm:px-6 max-w-3xl mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
+      <p
+        class="px-4 sm:px-6 max-w-3xl  mx-auto text-4xl md:text-5xl font-bold leading-tighter tracking-tighter font-heading"
+        style = {{textAlign:"center"}}
       >
         {post.title}
-      </h1>
-      <p
-        class="max-w-3xl mx-auto mt-4 mb-8 px-4 sm:px-6 text-xl md:text-2xl text-muted dark:text-slate-400 text-justify"
-      >
-        {post.excerpt}
-      </p>
-
+    </p>
+      <PostTags tags={post.tags} class="flex justify-center mt-5 mb-5 mr-5 rtl:mr-0 rtl:ml-5" />
       {
         post.image ? (
           <Image
@@ -83,7 +78,6 @@ const { Content } = post;
       }
     </div>
     <div class="mx-auto px-6 sm:px-6 max-w-3xl mt-8 flex justify-between flex-col sm:flex-row">
-      <PostTags tags={post.tags} class="mr-5 rtl:mr-0 rtl:ml-5" />
       <SocialShare url={url} text={post.title} class="mt-5 sm:mt-1 align-middle text-gray-500 dark:text-slate-600" />
     </div>
   </article>
