@@ -60,6 +60,6 @@ After:
 
 The time to interact with the web page was cut almost in half! Compared to my previous site I built using Next.js, I'm pretty impressed with the results. 
 
-To wrap things up, Astro is a pretty neat tool to use for static websites. Just be aware that set up might not always go as planned.
+To wrap things up, Astro is a pretty neat tool to use for static websites. Just be prepared for some trial and error during setup.
 
 
