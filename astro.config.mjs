@@ -37,6 +37,7 @@ export default defineConfig({
     sitemap(),
     mdx(),
     icon({
+      iconDir: "src/icons",
       include: {
         tabler: ['*'],
         'flat-color-icons': [
