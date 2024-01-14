@@ -49,9 +49,5 @@
   },
   "engines": {
     "node": ">=18.14.1"
-  },
-  "resolutions": {
-    "astro/sharp": "0.33.1",
-    "astro-compress/sharp": "0.33.1"
   }
 }
