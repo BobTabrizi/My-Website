@@ -60,10 +60,11 @@ export default defineConfig({
     ),
 
     tasks(),
+  ],
 
-    image: {
-      service: squooshImageService(),
-    },
+  image: {
+    service: squooshImageService(),
+  },
 
   markdown: {
     remarkPlugins: [readingTimeRemarkPlugin],
