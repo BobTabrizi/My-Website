@@ -26,5 +26,5 @@ export const footerData = {
     { ariaLabel: 'Github', icon: 'tabler:brand-github', href: 'https://github.com/BobTabrizi' },
     { ariaLabel: 'LinkedIn', icon: 'tabler:brand-linkedin', href: 'https://www.linkedin.com/in/bobtabrizi' },
   ],
-  footNote: ` © 2024 Bob Tabrizi. All rights reserved. `,
+  footNote: ` © 2023 Bob Tabrizi. All rights reserved. `,
 };

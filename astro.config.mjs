@@ -1,12 +1,13 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-import { defineConfig, squooshImageService } from 'astro/config';
+import { defineConfig } from 'astro/config';
 
 import sitemap from '@astrojs/sitemap';
 import tailwind from '@astrojs/tailwind';
 import mdx from '@astrojs/mdx';
 import partytown from '@astrojs/partytown';
+import compress from 'astro-compress';
 import icon from 'astro-icon';
 import tasks from './src/utils/tasks';
 
@@ -37,7 +38,6 @@ export default defineConfig({
     sitemap(),
     mdx(),
     icon({
-      iconDir: "src/icons",
       include: {
         tabler: ['*'],
         'flat-color-icons': [
@@ -61,11 +61,18 @@ export default defineConfig({
     ),
 
     tasks(),
-  ],
 
-  image: {
-    service: squooshImageService(),
-  },
+    compress({
+      CSS: true,
+      HTML: {
+        removeAttributeQuotes: false,
+      },
+      Image: false,
+      JavaScript: true,
+      SVG: true,
+      Logger: 1,
+    }),
+  ],
 
   markdown: {
     remarkPlugins: [readingTimeRemarkPlugin],
