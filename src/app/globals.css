@@ -102,6 +102,69 @@ body::before {
   box-shadow: 0 -10px 60px -12px rgb(77 141 255 / 0.4);
 }
 
+/*
+ * Window onto the horizon: fades out toward both sides and toward the bottom, so the planet's glow
+ * blends into the page instead of ending at a hard edge. The two gradients are intersected.
+ */
+.horizon-fade {
+  --fade-x: linear-gradient(to right, transparent, #000 25%, #000 75%, transparent);
+  --fade-y: linear-gradient(to bottom, #000 35%, transparent);
+  mask-image: var(--fade-x), var(--fade-y);
+  mask-composite: intersect;
+}
+
+/*
+ * As the page scrolls, the horizon sinks a little and fades out, gone before Projects reaches mid-screen.
+ * Driven by scroll position in CSS alone; browsers without scroll-driven animations keep it static.
+ */
+@supports (animation-timeline: view()) {
+  .horizon-fade {
+    animation: horizon-set linear both;
+    /* Declared after the shorthand, which would otherwise reset it. */
+    animation-timeline: view();
+    animation-range: cover 20% cover 55%;
+  }
+}
+
+@keyframes horizon-set {
+  to {
+    opacity: 0;
+    transform: translateY(2.5rem);
+  }
+}
+
+/* Hero portrait as a moon: pale moonlight around it, a lit rim, and a phase shadow on the far side. */
+.moon {
+  box-shadow:
+    0 0 50px -8px rgb(214 226 255 / 0.3),
+    0 0 140px -20px rgb(77 141 255 / 0.35);
+}
+
+.moon-phase {
+  /* Light comes from the upper right, so the lower left falls into shadow (a waxing gibbous moon). */
+  background:
+    radial-gradient(circle at 72% 28%, rgb(214 226 255 / 0.12), transparent 45%),
+    radial-gradient(circle at 80% 25%, transparent 42%, rgb(3 5 10 / 0.62) 64%, rgb(3 5 10 / 0.94) 92%);
+  box-shadow: inset 0 0 0 1px rgb(214 226 255 / 0.14);
+  transition: opacity 700ms ease;
+}
+
+/* Hover turns it into a full moon. */
+.moon:hover .moon-phase {
+  opacity: 0.15;
+}
+
+/* A small satellite circling the portrait. */
+.orbit {
+  animation: orbit 40s linear infinite;
+}
+
+@keyframes orbit {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 /* Underline that draws in from the left on hover. */
 .link-draw {
   background-image: linear-gradient(var(--accent), var(--accent));
@@ -128,5 +191,9 @@ body::before {
   .twinkle {
     animation: none;
     opacity: 0.5;
+  }
+  .orbit,
+  .horizon-fade {
+    animation: none;
   }
 }
