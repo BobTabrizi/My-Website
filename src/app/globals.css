@@ -1,0 +1,132 @@
+@import 'tailwindcss';
+
+/*
+ * Palette: blue-black night sky, cool starlight text, one blue accent.
+ * The site is dark-only by design.
+ */
+:root {
+  color-scheme: dark;
+  --night: #05070c;
+  --surface: #0b101c;
+  --ink: #e7ecf5;
+  --ink-soft: #a3aec2;
+  --ink-faint: #75829a;
+  --rule: #182133;
+  --accent: #5b9bff;
+}
+
+@theme inline {
+  --color-night: var(--night);
+  --color-surface: var(--surface);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-ink-faint: var(--ink-faint);
+  --color-rule: var(--rule);
+  --color-accent: var(--accent);
+
+  --font-sans: var(--font-manrope), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-sora), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-jetbrains), ui-monospace, 'Cascadia Code', monospace;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+/* A soft blue glow at the top of the page, like light from just over the horizon. */
+body {
+  overflow-x: clip;
+  color: var(--ink);
+  background:
+    radial-gradient(ellipse 70% 45% at 50% -5%, rgb(56 110 255 / 0.18), transparent 70%) no-repeat,
+    var(--night);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* Sparse star field, fixed behind the content. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: url('/stars.svg') center / cover no-repeat;
+  opacity: 0.55;
+}
+
+/* Brighter stars that slowly brighten and fade; animates only opacity and transform. */
+.twinkle {
+  background: #dfe9ff;
+  box-shadow: 0 0 6px 1px rgb(156 192 255 / 0.75);
+  animation: twinkle ease-in-out infinite;
+  will-change: opacity, transform;
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.1;
+    transform: scale(0.6);
+  }
+  50% {
+    opacity: 0.95;
+    transform: scale(1);
+  }
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--night);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Name gradient: white fading into starlight blue. */
+.text-starlight {
+  background: linear-gradient(100deg, #eef3ff 0%, #9cc0ff 45%, #3f7bff 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Edge of a planet-sized circle: a thin lit rim with a glow just beneath it. */
+.horizon {
+  border-top: 1px solid rgb(130 175 255 / 0.55);
+  background: radial-gradient(ellipse 45% 7% at 50% 0%, rgb(77 141 255 / 0.3), transparent 100%);
+  box-shadow: 0 -10px 60px -12px rgb(77 141 255 / 0.4);
+}
+
+/* Underline that draws in from the left on hover. */
+.link-draw {
+  background-image: linear-gradient(var(--accent), var(--accent));
+  background-size: 0% 1px;
+  background-position: 0 100%;
+  background-repeat: no-repeat;
+  transition: background-size 250ms ease, color 150ms ease;
+}
+.link-draw:hover,
+.link-draw:focus-visible {
+  background-size: 100% 1px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
+  .twinkle {
+    animation: none;
+    opacity: 0.5;
+  }
+}
