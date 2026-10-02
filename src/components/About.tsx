@@ -1,6 +1,7 @@
 import Image from 'next/image';
 
 import { Section } from '@/components/Section';
+import { interests } from '@/content/interests';
 import { toolbox } from '@/content/site';
 import portrait from '@/assets/images/portrait.png';
 
@@ -34,7 +35,30 @@ export function About() {
         </div>
       </div>
 
-      <div className="mt-16 grid gap-8 border-t border-rule pt-8 sm:grid-cols-2 lg:grid-cols-4">
+      <div className="mt-16 border-t border-rule pt-8">
+        <h3 className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink-faint">My interests at a glance</h3>
+        <ul className="mt-5 flex flex-wrap gap-4">
+          {interests.map(({ name, Icon, iconClass }) => (
+            <li key={name}>
+              <span
+                tabIndex={0}
+                className="group relative flex size-20 items-center justify-center rounded-md border border-rule bg-surface/60 text-ink-soft transition duration-300 hover:-translate-y-0.5 hover:border-accent/50 hover:text-accent hover:shadow-[0_12px_40px_-18px_rgb(77_141_255/0.6)] focus-visible:border-accent/50 focus-visible:text-accent"
+              >
+                <Icon className={iconClass ?? 'size-10'} />
+                <span className="sr-only">{name}</span>
+                <span
+                  aria-hidden="true"
+                  className="pointer-events-none absolute bottom-full left-1/2 mb-2 -translate-x-1/2 translate-y-1 whitespace-nowrap rounded border border-rule bg-surface px-2 py-1 font-mono text-[0.65rem] uppercase tracking-[0.12em] text-ink opacity-0 transition duration-200 group-hover:translate-y-0 group-hover:opacity-100 group-focus-visible:translate-y-0 group-focus-visible:opacity-100"
+                >
+                  {name}
+                </span>
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <div className="mt-12 grid gap-8 border-t border-rule pt-8 sm:grid-cols-2 lg:grid-cols-4">
         {toolbox.map((group) => (
           <div key={group.label}>
             <h3 className="font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink-faint">{group.label}</h3>
